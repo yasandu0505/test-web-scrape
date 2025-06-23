@@ -11,8 +11,12 @@ soup = BeautifulSoup(response.text, 'html.parser')
 # Step 3: Find all quote blocks
 quotes = soup.find_all('div', class_='quote')
 
+count = 1
+
 # Step 4: Extract and print quote text and author
 for quote in quotes:
     text = quote.find('span', class_='text').text
     author = quote.find('small', class_='author').text
-    print(f"{text} — {author}")
+    print(f"{count}. {text} — {author}")
+    print("\n")
+    count += 1
